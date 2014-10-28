@@ -172,7 +172,10 @@ $app->router->add('source', function() use ($app) {
     $source = new \Mos\Source\CSource([
         'secure_dir' => '..',
         'base_dir' => '..',
-        'add_ignore' => ['.htaccess'],
+        'add_ignore' => ['.htaccess',
+                        '.gitignore',
+                        '.scrutinizer.yml',
+                        '.travis.yml'],
     ]);
 
     $app->views->add('me/source', [
