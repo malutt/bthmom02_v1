@@ -40,7 +40,7 @@ $app->router->add('', function() use ($app) {
   	$app->dispatcher->forward([
         'controller' => 'comment',
         'action'     => 'view',
-        'params' => ['pageId' => $app->request->getCurrentUrl()], 
+        'params' => ['pageId' => $app->request->getCurrentUrl()],
     ]);
 
     $app->views->add('comment/form', [
@@ -50,6 +50,7 @@ $app->router->add('', function() use ($app) {
         'content'   => null,
         'output'    => null,
         'pageId'	=> $app->request->getCurrentUrl(),
+        'gravatarUrl' => null,
     ]);
 });
 
@@ -80,6 +81,7 @@ $app->router->add('redovisning', function() use ($app) {
         'params' => ['pageId' => $app->request->getCurrentUrl()], 
     ]);
 
+
     $app->views->add('comment/form', [
         'mail'      => null,
         'web'       => null,
@@ -87,6 +89,75 @@ $app->router->add('redovisning', function() use ($app) {
         'content'   => null,
         'output'    => null,
         'pageId'	=> $app->request->getCurrentUrl(),
+        'gravatarUrl' => null,
+    ]);
+
+});
+
+$app->router->add('kmom01', function() use ($app) {
+
+    $app->theme->setTitle("Redovisning - Kmom01");
+
+    $content = $app->fileContent->get('kmom01.md');
+    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+
+    $byline = $app->fileContent->get('byline.md');
+    $byline = $app->textFilter->doFilter($byline, 'shortcode, markdown');
+
+    $app->views->add('me/page', [
+        'content' => $content,
+        'byline' => $byline,
+    ]);
+
+    $app->dispatcher->forward([
+        'controller' => 'comment',
+        'action'     => 'view',
+        'params' => ['pageId' => $app->request->getCurrentUrl()],
+    ]);
+
+
+    $app->views->add('comment/form', [
+        'mail'      => null,
+        'web'       => null,
+        'name'      => null,
+        'content'   => null,
+        'output'    => null,
+        'pageId'	=> $app->request->getCurrentUrl(),
+        'gravatarUrl' => null,
+    ]);
+
+});
+
+$app->router->add('kmom02', function() use ($app) {
+
+    $app->theme->setTitle("Redovisning - Kmom02");
+
+    $content = $app->fileContent->get('kmom02.md');
+    $content = $app->textFilter->doFilter($content, 'shortcode, markdown');
+
+    $byline = $app->fileContent->get('byline.md');
+    $byline = $app->textFilter->doFilter($byline, 'shortcode, markdown');
+
+    $app->views->add('me/page', [
+        'content' => $content,
+        'byline' => $byline,
+    ]);
+
+    $app->dispatcher->forward([
+        'controller' => 'comment',
+        'action'     => 'view',
+        'params' => ['pageId' => $app->request->getCurrentUrl()],
+    ]);
+
+
+    $app->views->add('comment/form', [
+        'mail'      => null,
+        'web'       => null,
+        'name'      => null,
+        'content'   => null,
+        'output'    => null,
+        'pageId'	=> $app->request->getCurrentUrl(),
+        'gravatarUrl' => null,
     ]);
 
 });
@@ -96,6 +167,7 @@ $app->router->add('source', function() use ($app) {
 
     $app->theme->addStylesheet('css/source.css');
     $app->theme->setTitle("Källkod");
+
 
     $source = new \Mos\Source\CSource([
         'secure_dir' => '..',
@@ -108,6 +180,8 @@ $app->router->add('source', function() use ($app) {
     ]);
 
 });
+
+
 
 $app->router->handle();
 $app->theme->render();

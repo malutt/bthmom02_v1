@@ -25,25 +25,25 @@ return [
             'title' => 'Some title 2',
 
             // Here we add the submenu, with some menu items, as part of a existing menu item
-            /**'submenu' => [
+            'submenu' => [
 
                 'items' => [
 
                     // This is a menu item of the submenu
                     'item 1'  => [
-                        'text'  => 'Item 1',   
-                        'url'   => 'item1.php',  
-                        'title' => 'Some item 1'
+                        'text'  => 'Kmom01',
+                        'url'   => 'kmom01',
+                        'title' => 'kmom01'
                     ],
 
                     // This is a menu item of the submenu
                     'item 2'  => [
-                        'text'  => 'Item 2',   
-                        'url'   => 'item2.php',  
-                        'title' => 'Some item 2'
+                        'text'  => 'Kmom02',
+                        'url'   => 'kmom02',
+                        'title' => 'kmom012'
                     ],
                 ],
-            ],*/
+            ],
         ],
  
         // This is a menu item

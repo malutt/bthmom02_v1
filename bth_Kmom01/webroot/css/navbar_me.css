@@ -44,7 +44,7 @@
 }
 
 .navbar ul ul {
-    background-color: #fff;
+    background-color: #eeeeee;
     padding: 8px;
     position: absolute;
     left: -9999px;
@@ -53,7 +53,7 @@
 
 .navbar li li {
     border-top: none;
-    border-left: 4px solid transparent;
+    border-bottom: 1px solid transparent;
 }
 
 .navbar li:hover ul {
@@ -61,11 +61,11 @@
 }
 
 .navbar li li:hover {
-    color: #99ccff;
-    border-color: #666;
+    color: #ccc;
+    border-bottom: 1px solid #ccc;
 }
 
 .navbar li li.selected {
-    color: #22f;
-    border-color: #22f;
+    color: #000;
+    border-bottom: 1px solid #333;
 }
